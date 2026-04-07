@@ -1,0 +1,79 @@
+Make the following two updates to the current STRONG Pilates x Revryze proposal:
+
+---
+
+## UPDATE 1 — REMOVE THE CTA BUTTON
+
+In the Next Steps section at the bottom of the page, remove the "Schedule a Call with Revryze →" button entirely. Keep the headline "Let's build the strongest launch system in Pilates." but remove everything below it — the button, the cal.com link, and any wrapper div/container that was only there to hold the button. The section should end cleanly after that headline.
+
+---
+
+## UPDATE 2 — ADD REFUND QUALIFICATION REQUIREMENTS
+
+The prorated refund is NOT unconditional. To qualify for the refund, the franchisee must meet TWO requirements:
+
+1. Submit 250 community-driven leads to Revryze
+2. Spend $25,000 on Meta ads (managed by Revryze as part of the program)
+
+Revryze runs Meta ads as a core part of its member acquisition process. The $25,000 ad spend is paid by the franchisee and is separate from the Revryze service fee.
+
+Apply this everywhere refund language appears:
+
+---
+
+### HERO SECTION
+Update subheading to:
+"Dedicated US-based sales team. Guaranteed member acquisition. Prorated refund if we miss — when qualification requirements are met."
+
+Update Solution card bullet from:
+"250-member guarantee. Dollar-for-dollar prorated refund."
+To:
+"250-member guarantee. Prorated refund when 250 community leads provided and $25K ad spend completed."
+
+---
+
+### PRICING SECTION
+Below the "NO RESULTS = NO MONEY KEPT" banner, add a qualification box styled as a muted/secondary card:
+
+Title: "REFUND QUALIFICATION REQUIREMENTS"
+Body: "To qualify for the prorated refund guarantee, franchisees must:
+  ✓ Provide 250 community-driven leads to the Revryze sales team
+  ✓ Complete $25,000 in Meta ad spend (managed by Revryze)
+When both conditions are met, any shortfall below 250 members is refunded dollar-for-dollar at [fee ÷ 250] per member."
+
+---
+
+### CALCULATOR SECTION
+Add $25,000 as a fixed line item in the Per-Studio Economics card:
+
+Under the existing line items add:
+- Required Ad Spend: $25,000 (fixed, franchisee-paid, labeled "Paid by franchisee. Required for refund guarantee.")
+
+Update the Investment total and Net Franchisee Investment to INCLUDE the $25,000 ad spend:
+- Net Franchisee Investment = Revryze fee + rebate + $25,000 ad spend
+- ROI Multiple = Revenue ÷ Net Franchisee Investment (now includes ad spend)
+
+Update the refund example line below the calculator to:
+"Refund example: At $[active fee]/studio with $25K ad spend completed and 250 community leads provided — if Revryze delivers 200 of 250 members, refund = 50 × $[fee÷250] = $[calculated refund]"
+
+---
+
+### NEXT STEPS SECTION
+Update Step 3 copy to:
+"Revryze deploys a dedicated US-based sales team 30–60 days before each studio opening. Revryze manages Meta ad campaigns ($25,000 ad spend, franchisee-funded). Franchisee provides 250 community-driven leads. Pre-launch member acquisition begins immediately."
+
+Update Step 4 copy to:
+"When the franchisee has provided 250 community leads and completed $25,000 in Meta ad spend — if Revryze delivers fewer than 250 members, a prorated dollar-for-dollar refund is issued for every member short. Full accountability. Zero ambiguity."
+
+---
+
+### REAL RESULTS SECTION
+No changes needed here.
+
+---
+
+## TECHNICAL NOTES
+- The $25,000 ad spend is a FIXED number — it does not change with the rebate, studio count, or any slider. It is always $25,000 per studio.
+- It should appear as a separate line item in the per-studio cost breakdown so the franchisee can see their full all-in investment clearly.
+- Do not remove the ad spend from the ROI calculation — it is a real cost to the franchisee and should be included in Net Investment.
+- Everywhere the word "refund" or "guarantee" appears, make sure the qualification requirements are either stated or referenced. No refund language should appear unconditional.

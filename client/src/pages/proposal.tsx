@@ -13,15 +13,12 @@ import {
   Building2,
   DollarSign,
   Users,
-  ArrowRight,
   Calendar,
   Rocket,
   Handshake,
   BadgeDollarSign
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-
-const CTA_LINK = 'https://cal.com/revryze';
 
 const formatMoney = (amount: number) => {
   return new Intl.NumberFormat('en-US', {
@@ -44,10 +41,12 @@ export default function ProposalPage() {
   const VOLUME_THRESHOLD = 10;
   const ROYALTY_RATE = 0.08;
 
+  const AD_SPEND = 25000;
+
   const effectiveFee = studioOpenings >= VOLUME_THRESHOLD ? VOLUME_FEE : STANDARD_FEE;
   const isVolumeDiscount = studioOpenings >= VOLUME_THRESHOLD;
 
-  const franchiseeTotalCost = effectiveFee + rebateAmount;
+  const franchiseeTotalCost = effectiveFee + rebateAmount + AD_SPEND;
 
   const ltvPerMember = monthlyValue * lifetimeMonths;
   const revenuePerStudio = membersAcquired * ltvPerMember;
@@ -80,7 +79,7 @@ export default function ProposalPage() {
             <span className="text-strongBlue">OR YOU GET REFUNDED.</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed" data-testid="text-hero-subtitle">
-            Dedicated US-based sales team. Guaranteed member acquisition. Dollar-for-dollar prorated refund if we miss.
+            Dedicated US-based sales team. Guaranteed member acquisition. Prorated refund if we miss — when qualification requirements are met.
           </p>
         </div>
 
@@ -127,7 +126,7 @@ export default function ProposalPage() {
                 </li>
                 <li className="flex gap-3" data-testid="text-revryze-item-1">
                   <CheckCircle2 size={16} className="text-strongBlue shrink-0 mt-0.5" />
-                  250-member guarantee. Dollar-for-dollar prorated refund.
+                  250-member guarantee. Prorated refund when 250 community leads provided and $25K ad spend completed.
                 </li>
                 <li className="flex gap-3" data-testid="text-revryze-item-2">
                   <ShieldCheck size={16} className="text-strongBlue shrink-0 mt-0.5" />
@@ -250,6 +249,23 @@ export default function ProposalPage() {
               250 members per studio or prorated dollar-for-dollar refund.<br />
               Revenue created. Royalties earned.
             </p>
+          </div>
+
+          {/* Refund Qualification Requirements */}
+          <div className="mt-6 p-6 bg-neutral-900/60 rounded-2xl border border-neutral-700" data-testid="card-refund-qualification">
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">REFUND QUALIFICATION REQUIREMENTS</p>
+            <p className="text-gray-400 text-sm mb-3">To qualify for the prorated refund guarantee, franchisees must:</p>
+            <ul className="space-y-2 text-sm text-gray-300 mb-4">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 size={15} className="text-strongBlue shrink-0 mt-0.5" />
+                Provide 250 community-driven leads to the Revryze sales team
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 size={15} className="text-strongBlue shrink-0 mt-0.5" />
+                Complete $25,000 in Meta ad spend (managed by Revryze)
+              </li>
+            </ul>
+            <p className="text-xs text-gray-500">When both conditions are met, any shortfall below 250 members is refunded dollar-for-dollar at [{formatMoney(effectiveFee)} ÷ 250] = {formatMoney(perMemberCost)} per member short.</p>
           </div>
         </div>
       </section>
@@ -428,8 +444,15 @@ export default function ProposalPage() {
                       <span>HQ Rebate Add-On</span>
                       <span>{formatMoney(rebateAmount)}</span>
                     </div>
+                    <div className="flex justify-between">
+                      <span className="flex flex-col">
+                        <span>Required Ad Spend</span>
+                        <span className="text-xs text-gray-600">Paid by franchisee. Required for refund guarantee.</span>
+                      </span>
+                      <span>{formatMoney(AD_SPEND)}</span>
+                    </div>
                     <div className="flex justify-between font-bold text-white pt-2 border-t border-neutral-800">
-                      <span>Franchisee Total Cost</span>
+                      <span>Net Franchisee Investment</span>
                       <span>{formatMoney(franchiseeTotalCost)}</span>
                     </div>
                   </div>
@@ -479,7 +502,7 @@ export default function ProposalPage() {
           {/* Live Refund Example */}
           <div className="mt-8 p-5 bg-neutral-900/50 rounded-2xl border border-neutral-800 text-center">
             <p className="text-gray-400 text-sm">
-              <span className="font-bold text-white">Refund example:</span> If Revryze delivers 200 of 250 members at {formatMoney(effectiveFee)}/studio — refund = 50 × {formatMoney(perMemberCost)} = {formatMoney(refundExampleAmount)}
+              <span className="font-bold text-white">Refund example:</span> At {formatMoney(effectiveFee)}/studio with $25K ad spend completed and 250 community leads provided — if Revryze delivers 200 of 250 members, refund = 50 × {formatMoney(perMemberCost)} = {formatMoney(refundExampleAmount)}
             </p>
           </div>
         </div>
@@ -560,13 +583,13 @@ export default function ProposalPage() {
                 num: 3,
                 icon: <Rocket size={20} />,
                 title: 'SALES TEAM DEPLOYMENT',
-                desc: 'Revryze deploys a dedicated US-based sales team 30\u201360 days before each studio opening. Pre-launch member acquisition begins immediately.',
+                desc: 'Revryze deploys a dedicated US-based sales team 30–60 days before each studio opening. Revryze manages Meta ad campaigns ($25,000 ad spend, franchisee-funded). Franchisee provides 250 community-driven leads. Pre-launch member acquisition begins immediately.',
               },
               {
                 num: 4,
                 icon: <ShieldCheck size={20} />,
                 title: '250 MEMBERS OR REFUND',
-                desc: 'We hit 250 members or issue a prorated dollar-for-dollar refund for every member short. No risk to the franchisee. No risk to HQ.',
+                desc: 'When the franchisee has provided 250 community leads and completed $25,000 in Meta ad spend — if Revryze delivers fewer than 250 members, a prorated dollar-for-dollar refund is issued for every member short. Full accountability. Zero ambiguity.',
               },
               {
                 num: 5,
@@ -598,18 +621,9 @@ export default function ProposalPage() {
 
           {/* CTA */}
           <div className="text-center mt-12">
-            <p className="text-2xl md:text-3xl font-black text-white mb-8 tracking-tight">
+            <p className="text-2xl md:text-3xl font-black text-white tracking-tight">
               Let's build the strongest launch system in Pilates.
             </p>
-            <a
-              href={CTA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-strongBlue text-black font-bold text-lg px-8 py-4 rounded-full hover:scale-105 transition-transform"
-            >
-              Schedule a Call with Revryze
-              <ArrowRight size={20} />
-            </a>
           </div>
         </div>
       </section>
