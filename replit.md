@@ -1,10 +1,12 @@
-# Revryze x Alloy Personal Training Growth Partnership
+# Revryze x STRONG Pilates Growth Partnership
 
 ## Overview
 
-This is a sales proposal web application for the Revryze x Alloy Personal Training partnership. The application presents a corporate-level, data-driven proposal showing how deploying Revryze across studio openings generates incremental royalty revenue for Alloy corporate. Built as a single-page presentation with an interactive royalty calculator and a premium dark theme design aesthetic. Targeted at Alloy corporate (franchisor) leadership with messaging pillars of "Stronger Together", science-backed training, and proven results since 1992.
+This is a sales proposal web application for the Revryze x STRONG Pilates partnership. The application presents a corporate-level, data-driven proposal showing how deploying Revryze across studio openings generates incremental royalty revenue for STRONG Pilates HQ. Built as a single-page presentation with an interactive royalty calculator and a premium dark theme design aesthetic. Targeted at STRONG Pilates corporate (franchisor) leadership.
 
-**Key framing**: Corporate incurs $0 cost. Franchisees pay Revryze fees. All royalty revenue shown is pure upside for the franchisor.
+Revryze is a dedicated US-based sales team that fills fitness studios with paying members before and after opening. It is a done-for-you member acquisition program. Franchisees pay one fee. Revryze handles all sales. HQ earns faster royalties.
+
+**Key framing**: Revryze guarantees 250 paying members per studio opening. Dollar-for-dollar prorated refund for every member short of 250. Two pricing tiers: $40,000 standard, $30,000 for 10+ studios. Corporate incurs $0 cost. Franchisees pay Revryze fees. All royalty revenue shown is pure upside for the franchisor. HQ can add a private rebate on top of the base fee as pure income.
 
 ## User Preferences
 
@@ -45,7 +47,8 @@ shared/           # Shared types and schemas
 
 ### Design System
 - Premium dark interface (#0a0a0a background)
-- Primary brand color: Alloy Chartreuse/Neon Yellow (#CCFF00)
+- Primary brand color: STRONG Pilates Sky Blue (#A8CFEA)
+- Revryze Green (#00E87C) for Revryze logo/icons and success states
 - Alert/failure color: Red (#ef4444)
 - Inter font family with varied weights
 - CSS variables for theming (light/dark mode support)

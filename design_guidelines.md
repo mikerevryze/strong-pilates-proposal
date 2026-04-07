@@ -1,4 +1,4 @@
-# Revryze x Scenthound Pilot Proposal - Design Guidelines
+# Revryze x STRONG Pilates Proposal - Design Guidelines
 
 ## Design Approach
 **Reference-Based**: Drawing from enterprise SaaS platforms (Linear, Stripe Dashboard, Vercel) and professional B2B presentation tools. This is a high-stakes sales proposal requiring credibility, clarity, and visual impact.
@@ -6,7 +6,7 @@
 ## Core Design Principles
 1. **Dark Authority**: Premium dark interface communicating technical sophistication
 2. **Data-Driven Narrative**: Charts and metrics as primary storytelling tools
-3. **Binary Contrast**: Sharp visual distinction between failure (red) and success (cyan)
+3. **Binary Contrast**: Sharp visual distinction between failure (red) and success (sky blue)
 4. **Executive Confidence**: Bold typography, generous spacing, zero ambiguity
 
 ---
@@ -35,9 +35,9 @@
 - Border Hover: #404040 (neutral-700)
 
 **Brand**:
-- Primary (Revryze): #00AEEF (cyan)
+- Primary (STRONG Pilates): #A8CFEA (sky blue)
+- Revryze Green: #00E87C (for Revryze logo, icons, and success/positive states only)
 - Alert/Failure: #ef4444 (red-500)
-- Success: #00AEEF (same as primary)
 
 **Text**:
 - Primary: #ffffff (white)
@@ -46,7 +46,7 @@
 - Disabled: #4b5563 (gray-600)
 
 **Gradients**:
-- Hero Radial: from-[#00AEEF15] via-transparent to-transparent
+- Hero Radial: from-[#A8CFEA15] via-transparent to-transparent
 - Text Gradient: from-white via-white to-neutral-500
 
 ---
@@ -81,7 +81,7 @@
 
 ### Buttons
 **Primary CTA**:
-- Background: #00AEEF (solid)
+- Background: #A8CFEA (solid)
 - Text: black (high contrast)
 - Padding: px-8 py-4
 - Border-radius: rounded-full
@@ -95,7 +95,7 @@
 
 **Toggle Group**:
 - Container: neutral-900 with border, rounded-full
-- Active state: full background color (red-500 or #00AEEF)
+- Active state: full background color (red-500 or #A8CFEA)
 - Inactive: text-gray-500 hover text-gray-300
 
 ### Badges
@@ -107,15 +107,15 @@
 ### Data Visualization
 **Charts** (Recharts):
 - Horizontal bar charts for funnels
-- Opacity gradient: 1.0 → 0.8 → 0.6 for depth
+- Opacity gradient: 1.0 -> 0.8 -> 0.6 for depth
 - Grid: strokeDasharray 3-3, stroke #333, horizontal-false
 - Labels: right position, white, bold
 - Bar radius: [0, 4, 4, 0] (right-side rounded)
-- Color: Dynamic based on model (#00AEEF or #ef4444)
+- Color: Dynamic based on model (#A8CFEA or #ef4444)
 
 **Stat Cards**:
 - 2xl-4xl for numbers, font-mono
-- Color coding: cyan for success, red for failure
+- Color coding: sky blue for success, red for failure
 - Small labels: xs, uppercase, tracking-widest
 - Icon + checkmark/X for status
 
@@ -123,22 +123,22 @@
 - Library: Lucide React
 - Sizes: 16-18px inline, 20px buttons, 80px decorative backgrounds
 - Opacity: 10-20% for background decoration
-- Color: Semantic (red for alerts, cyan for success)
+- Color: Semantic (red for alerts, sky blue for success)
 
 ---
 
 ## Interaction Patterns
 
 **Hover States**:
-- Cards: border color shift (neutral-800 → neutral-700)
+- Cards: border color shift (neutral-800 -> neutral-700)
 - Buttons: scale transform or background opacity change
-- Toggle: text color change (gray-500 → gray-300)
+- Toggle: text color change (gray-500 -> gray-300)
 
 **Transitions**: All interactive elements use transition-all or transition-colors
 
 **Scroll Behavior**: smooth scrolling enabled globally
 
-**Selection**: Custom selection color (#00AEEF background, white text)
+**Selection**: Custom selection color (#A8CFEA background, black text)
 
 ---
 
@@ -146,7 +146,7 @@
 - Width: 8px
 - Track: #0f172a (slate-900)
 - Thumb: #334155 (slate-700), rounded-4px
-- Thumb hover: #00AEEF (brand color)
+- Thumb hover: #A8CFEA (brand color)
 
 ---
 
@@ -159,7 +159,7 @@
 
 ## Accessibility
 - High contrast ratios (white on dark backgrounds)
-- Semantic color coding (red = failure, cyan = success)
+- Semantic color coding (red = failure, sky blue = success)
 - Clear visual hierarchy through size and weight
 - Keyboard navigation implicit in React component structure
 
