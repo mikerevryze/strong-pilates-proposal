@@ -121,7 +121,7 @@ export default function ProposalPage() {
             <span className="text-strongBlue">OR YOU GET REFUNDED.</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed" data-testid="text-hero-subtitle">
-            Dedicated US-based sales team. Guaranteed member acquisition. Prorated refund if we miss — when qualification requirements are met.
+            Dedicated US-based sales team. Guaranteed member acquisition. Prorated refund if we miss.
           </p>
         </div>
 
@@ -706,7 +706,7 @@ export default function ProposalPage() {
           {/* CTA */}
           <div className="text-center mt-12">
             <p className="text-2xl md:text-3xl font-black text-white tracking-tight">
-              Let's build the strongest launch system in Pilates.
+              Let's build the STRONGest launch system in Pilates.
             </p>
           </div>
         </div>

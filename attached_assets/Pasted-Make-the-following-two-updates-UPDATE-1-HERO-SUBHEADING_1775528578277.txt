@@ -1,0 +1,38 @@
+Make the following two updates:
+
+## UPDATE 1 — HERO SUBHEADING
+Change the subheading from:
+"Dedicated US-based sales team. Guaranteed member acquisition. Prorated refund if we miss — when qualification requirements are met."
+
+To:
+"Dedicated US-based sales team. Guaranteed member acquisition. Prorated refund if we miss."
+
+## UPDATE 2 — CAPITALIZE "STRONG" EVERYWHERE
+The brand name is always written "STRONG" in all caps, never "Strong". Do a full pass of every file in the codebase and fix every instance where "Strong" appears as a brand reference.
+
+Specifically fix:
+- "Let's build the STRONGest launch system in Pilates." — update the end of the Next Steps section
+- "STRONG Pilates" — already correct, keep as is
+- Any other place where "Strong" (mixed case) is used as a brand name — change to "STRONG"
+
+Note: "strong" as a regular English word in non-brand context (e.g. "strong launches", "strong results") should stay lowercase. Only fix brand name references.
+
+## UPDATE 3 — INLINE AUDIO PLAYER
+In the Real Results section, the "Live Sales Call" card currently opens audio in a new page when clicked. Change this so it plays inline on the proposal page without navigation.
+
+When the user clicks the "Live Sales Call" card:
+- Expand the card downward in place to reveal an inline audio player
+- The user stays on the proposal page and can still scroll and interact with everything while audio plays
+
+Player styling:
+- Dark background (#171717)
+- Custom styled controls: play/pause button, progress scrubber bar, current time / total time display
+- Progress bar and active state accent color: #A8CFEA
+- No default browser audio chrome — build a clean custom player using an HTML5 <audio> element controlled via JavaScript/React state
+
+Behavior:
+- Clicking the card when expanded collapses it and stops playback
+- Audio continues playing if user scrolls away from the section
+- Keep the existing audio source URL/file path — only change the presentation
+
+The other two cards (Franchise Growth Study, Studio Relaunch) are untouched.
