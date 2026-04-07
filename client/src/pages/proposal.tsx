@@ -547,7 +547,7 @@ export default function ProposalPage() {
                   <div className="w-16 h-16 bg-neutral-800 rounded-full flex items-center justify-center mb-6 text-strongBlue group-hover:scale-110 transition-transform">
                     <BarChart3 size={32} />
                   </div>
-                  <h4 className="text-xl font-bold mb-2" data-testid="text-swet-title">STRONG Studio Relaunch</h4>
+                  <h4 className="text-xl font-bold mb-2" data-testid="text-swet-title">Studio Relaunch</h4>
                   <p className="text-gray-400 text-sm" data-testid="text-swet-desc">From 40 to 170+ members in 60 days.</p>
                 </CardContent>
               </Card>
