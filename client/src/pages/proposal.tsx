@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import {
   ShieldCheck,
   Zap,
@@ -9,6 +9,8 @@ import {
   PhoneCall,
   FileText,
   CheckCircle2,
+  Play,
+  Pause,
   BarChart3,
   Building2,
   DollarSign,
@@ -34,6 +36,46 @@ export default function ProposalPage() {
   const [monthlyValue, setMonthlyValue] = useState(150);
   const [lifetimeMonths, setLifetimeMonths] = useState(14);
   const [rebateAmount, setRebateAmount] = useState(0);
+
+  const [audioOpen, setAudioOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [audioDuration, setAudioDuration] = useState(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const toggleAudioCard = () => {
+    if (audioOpen) {
+      audioRef.current?.pause();
+      setIsPlaying(false);
+      setAudioOpen(false);
+    } else {
+      setAudioOpen(true);
+    }
+  };
+
+  const togglePlayPause = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+  };
+
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!audioRef.current || !audioDuration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    audioRef.current.currentTime = Math.max(0, Math.min(ratio * audioDuration, audioDuration));
+  };
+
+  const formatTime = (t: number) => {
+    if (!isFinite(t)) return '0:00';
+    const m = Math.floor(t / 60);
+    const s = Math.floor(t % 60);
+    return `${m}:${s.toString().padStart(2, '0')}`;
+  };
 
   const MEMBER_GUARANTEE = 250;
   const STANDARD_FEE = 40000;
@@ -517,17 +559,59 @@ export default function ProposalPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <a href="/swet-call-to-share.wav" target="_blank" rel="noopener noreferrer" className="group" data-testid="link-listen-call">
-              <Card className="h-full bg-neutral-900 border-neutral-800 group-hover:bg-neutral-800 transition-all hover:-translate-y-1 hover:border-strongBlue/50">
-                <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                  <div className="w-16 h-16 bg-neutral-800 rounded-full flex items-center justify-center mb-6 text-strongBlue group-hover:scale-110 transition-transform">
+            <div className="group cursor-pointer" data-testid="link-listen-call" onClick={toggleAudioCard}>
+              <Card className={`bg-neutral-900 border-neutral-800 transition-all ${audioOpen ? 'border-strongBlue/50' : 'group-hover:bg-neutral-800 hover:-translate-y-1 group-hover:border-strongBlue/50'}`}>
+                <CardContent className="p-6 flex flex-col items-center text-center">
+                  <div className={`w-16 h-16 bg-neutral-800 rounded-full flex items-center justify-center mb-6 transition-all ${audioOpen ? 'text-strongBlue bg-strongBlue/20' : 'text-strongBlue group-hover:scale-110'}`}>
                     <PhoneCall size={32} />
                   </div>
                   <h4 className="text-xl font-bold mb-2" data-testid="text-listen-title">Live Sales Call</h4>
-                  <p className="text-gray-400 text-sm" data-testid="text-listen-desc">Hear real-time lead conversion.</p>
+                  <p className="text-gray-400 text-sm" data-testid="text-listen-desc">
+                    {audioOpen ? (isPlaying ? 'Now playing…' : 'Paused') : 'Hear real-time lead conversion.'}
+                  </p>
                 </CardContent>
+
+                {/* Audio element — always in DOM so playback persists on scroll */}
+                <audio
+                  ref={audioRef}
+                  src="/swet-call-to-share.wav"
+                  onTimeUpdate={() => setCurrentTime(audioRef.current?.currentTime ?? 0)}
+                  onLoadedMetadata={() => setAudioDuration(audioRef.current?.duration ?? 0)}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                />
+
+                {/* Inline player — expands when card is open */}
+                {audioOpen && (
+                  <div className="px-5 pb-5" onClick={(e) => e.stopPropagation()}>
+                    <div className="bg-[#171717] rounded-xl p-4 border border-neutral-700">
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={togglePlayPause}
+                          className="w-9 h-9 rounded-full bg-strongBlue flex items-center justify-center text-black shrink-0 hover:opacity-80 transition-opacity"
+                          data-testid="button-audio-playpause"
+                        >
+                          {isPlaying ? <Pause size={15} fill="currentColor" /> : <Play size={15} fill="currentColor" />}
+                        </button>
+                        <span className="text-xs text-gray-500 font-mono w-10 text-right shrink-0">{formatTime(currentTime)}</span>
+                        <div
+                          className="flex-1 h-1.5 bg-neutral-700 rounded-full cursor-pointer relative"
+                          onClick={handleSeek}
+                          data-testid="slider-audio-progress"
+                        >
+                          <div
+                            className="absolute left-0 top-0 h-full bg-strongBlue rounded-full pointer-events-none"
+                            style={{ width: audioDuration ? `${(currentTime / audioDuration) * 100}%` : '0%' }}
+                          />
+                        </div>
+                        <span className="text-xs text-gray-500 font-mono w-10 shrink-0">{formatTime(audioDuration)}</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </Card>
-            </a>
+            </div>
 
             <a href="/Case-Study-Building-Predictable-Franchise-Growth-copy.pdf" target="_blank" rel="noopener noreferrer" className="group" data-testid="link-beem-case">
               <Card className="h-full bg-neutral-900 border-neutral-800 group-hover:bg-neutral-800 transition-all hover:-translate-y-1 hover:border-strongBlue/50">
